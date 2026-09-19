@@ -58,7 +58,7 @@ serde_json = "1.0.150"
 
 [features]
 binary = ["dep:clap", "dep:glob", "dep:env_logger", "dep:parse-size"]
-default = ["binary", "parallel", "zopfli"]
+default = ["binary", "parallel"]
 parallel = ["dep:rayon", "indexmap/rayon"]
 freestanding = ["libdeflater/freestanding"]
 sanity-checks = ["dep:image"]
@@ -76,6 +76,8 @@ opt-level = 2
 lto = "fat"
 strip = "symbols"
 panic = "abort"
+opt-level = "s"
+codegen-units = 1 
 
 [package.metadata.deb]
 assets = [
